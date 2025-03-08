@@ -58,13 +58,12 @@ kubectl apply -f grafana-service.yaml
 ### Acessando os Servoços
 
 #### 2 Acessando o Grafana
-Se você estiver usando o LoadBalancer no serviço, o IP externo será atribuído assim que o Kubernetes concluir a configuração. Você pode acessar o Grafana através do IP externo. Se o **EXTERNAL-IP** estiver pendente (como no seu caso), use port-forward para acessar localmente:
-
+Se você estiver usando o LoadBalancer no serviço, o IP externo será atribuído assim que o Kubernetes concluir a configuração. Você pode acessar o Grafana através do IP externo.
 Para verificar o status do serviço:
 ```yaml
 kubectl get svc -n monitoramento
 ```
-
+Se o **EXTERNAL-IP** estiver pendente (como no seu caso), use port-forward para acessar localmente:
 ```yaml
 kubectl port-forward <pod-name> > 3000:3000 -n monitoramento 
 ```
